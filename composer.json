@@ -1,0 +1,21 @@
+{
+    "name": "prinsfrank/phpstan-doc-code-analyzer",
+    "description": "Analyze code snippets in documentation and README with PHPStan!",
+    "type": "phpstan-extension",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "PrinsFrank\\PHPStanDocCodeAnalyzer\\": "src/"
+        }
+    },
+    "require": {
+        "phpstan/phpstan": "^2.1"
+    },
+    "extra": {
+        "phpstan": {
+            "includes": [
+                "extension.neon"
+            ]
+        }
+    }
+}

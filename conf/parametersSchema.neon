@@ -1,0 +1,7 @@
+parametersSchema:
+    docCodeAnalyzer: structure([
+        outputDir: string()
+        paths: listOf(string())
+        prependOpenTagWhenMissing: bool()
+        setStrictTypesWhenOpenTagMissing: bool()
+    ])

@@ -1,0 +1,10 @@
+parameters:
+    bootstrapFiles:
+        - ../bootstrap.php
+    docCodeAnalyzer:
+        outputDir: %tmpDir%/doc-code-snippets
+        prependOpenTagWhenMissing: true
+        setStrictTypesWhenOpenTagMissing: true
+        paths:
+            - docs/**.md
+            - README.md
