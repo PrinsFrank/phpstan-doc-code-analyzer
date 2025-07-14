@@ -1,0 +1,1 @@
+# phpstan-doc-code-analyzer
