@@ -8,19 +8,16 @@ use PrinsFrank\PHPStanDocCodeAnalyzer\Exception\RuntimeException;
 class DocCodeExtractor {
     public function __construct(
         private readonly Configuration $configuration,
-        private readonly FileCollector $docFileCollector,
+        private readonly FileHandler   $fileHandler,
     ) {
     }
 
     /** @throws DocCodeAnalyzerException */
     public function extract(string $cwd): void {
-        if (!is_dir($this->configuration->outputDir) && mkdir($this->configuration->outputDir, 0777, true) && !is_dir($this->configuration->outputDir)) {
-            throw new RuntimeException(sprintf('Unable to create output directory "%s"' , $this->configuration->outputDir));
-        }
-
-        foreach ($this->docFileCollector->allInCWD($cwd) as $file) {
-            $fileContents = file_get_contents($file);
-            if ($fileContents === false) {
+        $this->fileHandler->createDirectory($this->configuration->outputDir);
+        $this->fileHandler->cleanDirectory($this->configuration->outputDir);
+        foreach ($this->fileHandler->matchGlobs($cwd, $this->configuration->globPatterns) as $file) {
+            if (($fileContents = file_get_contents($file)) === false) {
                 throw new RuntimeException(sprintf('Unable to read file "%s"', $file));
             }
 
@@ -30,18 +27,13 @@ class DocCodeExtractor {
 
             foreach ($matches as $match) {
                 $outputFilePath = sprintf('%s/%s:%d.php', $this->configuration->outputDir, ltrim(str_replace($cwd, '', $file), '/'), substr_count(substr($fileContents, 0, (int) $match['content'][1]), "\n") + 1);
-                if (!file_exists($outputDir = dirname($outputFilePath)) && mkdir($outputDir, 0777, true) && !file_exists($outputDir)) {
-                    throw new RuntimeException(sprintf('Unable to create output directory "%s"', $outputDir));
-                }
-
-                $content = $match['content'][0];
-                if (!str_starts_with($content, '<?php') && $this->configuration->prependOpenTagWhenMissing) {
+                if (!str_starts_with($content = $match['content'][0], '<?php') && $this->configuration->prependOpenTagWhenMissing) {
                     $content = $this->configuration->setStrictTypesWhenOpenTagMissing
                         ? '<?php declare(strict_types=1);' . PHP_EOL . $content
                         : '<?php' . PHP_EOL . $content;
                 }
 
-                file_put_contents($outputFilePath, $content);
+                $this->fileHandler->write($outputFilePath, $content);
             }
         }
     }
