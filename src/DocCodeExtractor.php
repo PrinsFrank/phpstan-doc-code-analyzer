@@ -29,7 +29,7 @@ class DocCodeExtractor {
             }
 
             foreach ($matches as $match) {
-                $outputFilePath = sprintf('%s/%s:%d', $this->configuration->outputDir, ltrim(str_replace($cwd, '', $file), '/'), substr_count(substr($fileContents, 0, (int) $match['content'][1]), "\n") + 1);
+                $outputFilePath = sprintf('%s/%s:%d.php', $this->configuration->outputDir, ltrim(str_replace($cwd, '', $file), '/'), substr_count(substr($fileContents, 0, (int) $match['content'][1]), "\n") + 1);
                 if (!file_exists($outputDir = dirname($outputFilePath)) && mkdir($outputDir, 0777, true) && !file_exists($outputDir)) {
                     throw new RuntimeException(sprintf('Unable to create output directory "%s"', $outputDir));
                 }
