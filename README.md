@@ -10,6 +10,20 @@ composer require --dev prinsfrank/phpstan-doc-code-analyzer
 
 ## Configuration
 
+### Configuring paths to look for Markdown files
+
+You can configure the paths to analyze with glob patterns. By default, these are configured like this:
+
+```neon
+parameters:
+    docCodeAnalyzer:
+        paths:
+            - docs/**.md
+            - README.md
+```
+
+If one of the glob patterns doesn't match any files, this is likely a misconfiguration, so this will cause an error.
+
 ### Auto prepend open tag when missing
 
 When using PHP snippets in your documentation, you might not have all snippets start with the `<?php` open tag. So Instead of:
