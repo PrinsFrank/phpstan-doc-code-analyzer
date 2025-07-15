@@ -1,6 +1,6 @@
 services:
     -
-        class: PrinsFrank\PHPStanDocCodeAnalyzer\Configuration
+        class: PrinsFrank\PHPStanDocCodeAnalyzer\Configuration\Configuration
         arguments:
             outputDir: %docCodeAnalyzer.outputDir%
             prependOpenTagWhenMissing: %docCodeAnalyzer.prependOpenTagWhenMissing%
@@ -11,4 +11,4 @@ services:
         class: PrinsFrank\PHPStanDocCodeAnalyzer\DocCodeExtractor
 
     -
-        class: PrinsFrank\PHPStanDocCodeAnalyzer\FileHandler
+        class: PrinsFrank\PHPStanDocCodeAnalyzer\FileSystem\FileHandler

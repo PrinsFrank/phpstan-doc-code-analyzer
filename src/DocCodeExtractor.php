@@ -2,8 +2,10 @@
 
 namespace PrinsFrank\PHPStanDocCodeAnalyzer;
 
+use PrinsFrank\PHPStanDocCodeAnalyzer\Configuration\Configuration;
 use PrinsFrank\PHPStanDocCodeAnalyzer\Exception\DocCodeAnalyzerException;
 use PrinsFrank\PHPStanDocCodeAnalyzer\Exception\RuntimeException;
+use PrinsFrank\PHPStanDocCodeAnalyzer\FileSystem\FileHandler;
 
 class DocCodeExtractor {
     public function __construct(

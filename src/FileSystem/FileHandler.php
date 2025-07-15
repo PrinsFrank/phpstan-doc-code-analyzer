@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace PrinsFrank\PHPStanDocCodeAnalyzer;
+namespace PrinsFrank\PHPStanDocCodeAnalyzer\FileSystem;
 
 use FilesystemIterator;
 use PrinsFrank\PHPStanDocCodeAnalyzer\Exception\InvalidArgumentException;

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace PrinsFrank\PHPStanDocCodeAnalyzer;
+namespace PrinsFrank\PHPStanDocCodeAnalyzer\Configuration;
 
 class Configuration {
     /** @param list<string> $globPatterns */
