@@ -31,15 +31,18 @@ When using PHP snippets in your documentation, you might not have all snippets s
 ```
 ```php
 <?php
+
+echo 123;
 ```
 
-You might start your code blocks with that open tag:
+You might start your code blocks without that open tag:
 
 ```
 ```php
+echo 123;
 ```
 
-In that case this extension will automatically prepend that opening tag. If you don't want that, you can disable this:
+In that case this extension will automatically prepend that opening tag. If you don't want that (and want php codeblocks without an open tag to fail), you can disable this:
 
 ```neon
 parameters:
