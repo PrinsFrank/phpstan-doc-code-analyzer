@@ -2,4 +2,5 @@
 
 namespace PrinsFrank\PHPStanDocCodeAnalyzer\Exception;
 
-class RuntimeException extends DocCodeAnalyzerException {}
+class RuntimeException extends DocCodeAnalyzerException {
+}

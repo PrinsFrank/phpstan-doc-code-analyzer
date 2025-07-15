@@ -16,6 +16,11 @@
         "phpunit/phpunit": "^12.2",
         "friendsofphp/php-cs-fixer": "^3.84"
     },
+    "scripts": {
+        "cs": "php-cs-fixer fix --allow-risky=yes --dry-run",
+        "cs:fix": "php-cs-fixer fix --allow-risky=yes",
+        "stan": "phpstan analyse --memory-limit 4G -v"
+    },
     "extra": {
         "phpstan": {
             "includes": [

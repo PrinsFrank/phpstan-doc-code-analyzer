@@ -4,4 +4,5 @@ namespace PrinsFrank\PHPStanDocCodeAnalyzer\Exception;
 
 use Exception;
 
-abstract class DocCodeAnalyzerException extends Exception {}
+abstract class DocCodeAnalyzerException extends Exception {
+}

@@ -2,4 +2,5 @@
 
 namespace PrinsFrank\PHPStanDocCodeAnalyzer\Exception;
 
-class InvalidArgumentException extends DocCodeAnalyzerException {}
+class InvalidArgumentException extends DocCodeAnalyzerException {
+}
