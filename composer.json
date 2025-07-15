@@ -9,6 +9,7 @@
         }
     },
     "require": {
+        "php": "^8.2",
         "phpstan/phpstan": "^2.1"
     },
     "extra": {

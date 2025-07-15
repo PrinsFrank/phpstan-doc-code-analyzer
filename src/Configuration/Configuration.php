@@ -2,13 +2,13 @@
 
 namespace PrinsFrank\PHPStanDocCodeAnalyzer\Configuration;
 
-class Configuration {
+readonly class Configuration {
     /** @param list<string> $globPatterns */
     public function __construct(
-        public readonly string $outputDir,
-        public readonly bool   $prependOpenTagWhenMissing,
-        public readonly bool   $setStrictTypesWhenOpenTagMissing,
-        public readonly array  $globPatterns,
+        public string $outputDir,
+        public bool   $prependOpenTagWhenMissing,
+        public bool   $setStrictTypesWhenOpenTagMissing,
+        public array  $globPatterns,
     ) {
     }
 }

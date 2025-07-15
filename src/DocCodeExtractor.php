@@ -7,10 +7,10 @@ use PrinsFrank\PHPStanDocCodeAnalyzer\Exception\DocCodeAnalyzerException;
 use PrinsFrank\PHPStanDocCodeAnalyzer\Exception\RuntimeException;
 use PrinsFrank\PHPStanDocCodeAnalyzer\FileSystem\FileHandler;
 
-class DocCodeExtractor {
+readonly class DocCodeExtractor {
     public function __construct(
-        private readonly Configuration $configuration,
-        private readonly FileHandler   $fileHandler,
+        private Configuration $configuration,
+        private FileHandler   $fileHandler,
     ) {
     }
 
