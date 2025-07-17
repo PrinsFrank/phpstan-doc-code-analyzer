@@ -3,7 +3,9 @@
 use PHPStan\DependencyInjection\Container;
 use PrinsFrank\PHPStanDocCodeAnalyzer\DocCodeExtractor;
 
-require __DIR__ . '/vendor/autoload.php';
+if (! class_exists(Container::class)) {
+    require __DIR__ . '/vendor/autoload.php';
+}
 
 /** @var Container $container */
 $container->getByType(DocCodeExtractor::class)
