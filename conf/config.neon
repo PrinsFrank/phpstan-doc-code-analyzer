@@ -5,6 +5,3 @@ parameters:
         outputDir: %tmpDir%/doc-code-snippets
         prependOpenTagWhenMissing: true
         setStrictTypesWhenOpenTagMissing: true
-        paths:
-            - docs/**.md
-            - README.md
