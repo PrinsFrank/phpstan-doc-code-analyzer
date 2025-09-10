@@ -4,9 +4,9 @@ use PHPStan\DependencyInjection\Container;
 use PrinsFrank\PHPStanDocCodeAnalyzer\DocCodeExtractor;
 
 if (file_exists($installedPackagePath = dirname(__DIR__, 2) . '/autoload.php')) {
-    require $installedPackagePath;
+    require_once $installedPackagePath;
 } else {
-    require __DIR__ . '/vendor/autoload.php';
+    require_once __DIR__ . '/vendor/autoload.php';
 }
 
 /** @var Container $container */
